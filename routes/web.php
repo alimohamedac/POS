@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::prefix('dashboard')->namespace('Backend')->group(function () {
+    Route::get('/check', 'DashboardController@index')->name('backend.dashboard');
+    
+
+});
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
