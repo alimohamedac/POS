@@ -22,10 +22,10 @@ Route::prefix('dashboard')->namespace('Backend')->group(function () {
 
     //Route::resource('users','UserController')->except(['show']);
     Route::get('/users','UserController@index')->name('backend.users.index');
-	Route::get('/create', 'UserController@create')->name('backend.users.create');
- 
+	Route::get('/users/create', 'UserController@create')->name('backend.users.create');
+ 	Route::post('/users/store', 'UserController@store')->name('backend.users.store');
 // 
-       Route::post('/store', 'UserController@store')->name('backend.users.store');
+       
         Route::get('/edit/{id}', 'UserController@edit')->name('backend.users.edit');
         Route::post('/update', 'UserController@update')->name('backend.users.update');
         Route::get('/destroy/{id}', 'UserController@destroy')->name('backend.users.destroy');

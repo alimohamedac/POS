@@ -2,7 +2,7 @@
 
 return [
     'success'       =>  [
-        'created'   =>  'ٍSuccessfully created',
+        'added'   =>  'ٍSuccessfully created',
         'updated'   =>  'Successfully updated',
         'deleted'   =>  'Successfully deleted',
     ],

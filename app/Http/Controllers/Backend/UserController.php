@@ -21,15 +21,23 @@ class UserController extends Controller
         return view('backend.modules.users.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed',
+
+        ]);
+
+        $request_data = $request->except(['password']);
+        $request_data['password'] = bcrypt($request->password);
+
+        $user = User::create($request_data);
+
+        session()->flash('message', trans('backend/messages.success.added'));
+        return redirect()->route('backend.users.index');;
     }
 
    
