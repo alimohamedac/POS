@@ -27,20 +27,20 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active">
-                <a href="{{ url('/admin') }}">
+                <a href="{{ route('backend.dashboard') }}">
                     <i class="fa fa-dashboard"></i> <span>{{ trans('backend/master.dashboard') }}</span>
                 </a>
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-th-list"></i> <span>{{ trans('backend/articles.control') }}</span>
+                    <i class="fa fa-th-list"></i> <span>{{ trans('backend/users.control') }}</span>
                     <span class="pull-right-container">
                       <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('backend.dashboard') }}"><i class="fa fa-circle-o"></i> {{ trans('backend/articles.all') }}</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i>{{ trans('backend/articles.create') }}</a></li>
+                    <li><a href="{{ route('backend.users.index') }}"><i class="fa fa-circle-o"></i> {{ trans('backend/users.all') }}</a></li>
+                    <li><a href="{{ route('backend.users.create') }}"><i class="fa fa-circle-o"></i>{{ trans('backend/users.create') }}</a></li>
                 </ul>
             </li>
         </ul>

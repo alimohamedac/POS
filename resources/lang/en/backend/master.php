@@ -12,11 +12,11 @@ return [
     ],
 
     'index-nav'         => [
-        'id'            =>  'ID',
-        'title'         =>  'Title',
-        'photo'         =>  'Photo',
-        'created_at'    =>  'Created at',
-        'updated_at'    =>  'Updated at',
-        'control'       =>  'Control',
+        'no_data_found' => 'No data Found',
+        'users'         =>  'Users',
+        'first_name'    =>  'First Name',
+        'last_name'     =>  'Last Name',
+        'email'         =>  'Email',
+        'action'        =>  'Action',
     ],
 ];

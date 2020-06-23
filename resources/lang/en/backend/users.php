@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'control'   => 'Articles Control',
-    'all'       => 'All Articles',
-    'create'    => 'Add new Article',
-    'edit'      => 'Edit Article',
+    'control'   => 'Users Control',
+    'all'       => 'All Users',
+    'create'    => 'Add new User',
+    'edit'      => 'Edit User',
     'attributes'=> [
         'title'         => 'Title',
         'author'        => 'Author',
