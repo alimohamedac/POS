@@ -14,8 +14,11 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                    <div class="box-header">
+                    <div class="box-header">                                                                                       @if(auth()->user()->hasPermission('create_users'))
                         <a href="{{ route('backend.users.create') }}" class="btn btn-success btn-sm">{{ trans('backend/master.control.create') }}</a>
+                    @else
+                        <a href="#" class="btn btn-success disabled">{{ trans('backend/master.control.create') }}</a>
+                    @endif
                         <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
                                 <input name="table_search" class="form-control pull-right" placeholder="Search" type="text">
@@ -47,12 +50,22 @@
                                 <td>{{ $user->last_name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
+
+                                @if(auth()->user()->hasPermission('update_users'))
+
                                     <a href="{{ route('backend.users.edit', $user->id) }}" class="btn btn-info btn-sm">{{ trans('backend/master.control.edit') }}</a>
+                                @else
+                                    <a href="#" class="btn btn-info disabled">{{ trans('backend/master.control.edit') }}</a>
+                                @endif
+                                @if(auth()->user()->hasPermission('delete_users'))
                                     <form action="{{ route('backend.users.destroy', $user->id) }}" method="post" style="display: inline-block">
                                     @csrf  
                                     @method('DELETE')  
                                     <button type="submit" class="btn btn-danger btn-sm">{{ trans('backend/master.control.delete') }}</button>
                                     </form>
+                                @else
+                                    <button  class="btn btn-danger disabled">{{ trans('backend/master.control.delete') }}</button>
+                                @endif
                                 </td>
 
                             </tr>
