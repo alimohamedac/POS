@@ -31,6 +31,7 @@
                     <i class="fa fa-dashboard"></i> <span>{{ trans('backend/master.dashboard') }}</span>
                 </a>
             </li>
+            @if(auth()->user()->hasPermission('read_users'))
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-th-list"></i> <span>{{ trans('backend/users.control') }}</span>
@@ -43,6 +44,7 @@
                     <li><a href="{{ route('backend.users.create') }}"><i class="fa fa-circle-o"></i>{{ trans('backend/users.create') }}</a></li>
                 </ul>
             </li>
+            @endif
         </ul>
     </section>
     <!-- /.sidebar -->

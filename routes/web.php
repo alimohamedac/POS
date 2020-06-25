@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('dashboard')->namespace('Backend')->group(function () {
+Route::prefix('dashboard')->middleware(['auth'])->namespace('Backend')->group(function () {
     Route::get('/check', 'DashboardController@index')->name('backend.dashboard');
 
     //Route::resource('users','UserController')->except(['show']);
@@ -26,7 +26,7 @@ Route::prefix('dashboard')->namespace('Backend')->group(function () {
  	Route::post('/users/store', 'UserController@store')->name('backend.users.store');
 // 
        
-        Route::get('/edit/{id}', 'UserController@edit')->name('backend.users.edit');
+        Route::get('/users/edit/{id}', 'UserController@edit')->name('backend.users.edit');
         Route::post('/update', 'UserController@update')->name('backend.users.update');
         Route::get('/destroy/{id}', 'UserController@destroy')->name('backend.users.destroy');
 

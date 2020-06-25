@@ -48,12 +48,49 @@
                                         {{ trans('backend/users.attributes.password_confirmation') }}</label>
                                         <input type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" class="form-control" id="password_confirmation" placeholder="{{ trans('backend/users.hints.password_confirmation') }}">
                                     </div>
-                                </div>
-                                
+                                    <div class="form-group">
+                                        <div class="card">
+                                              <div class="card-header d-flex p-0">
+                                                <h3 class="card-title p-3">Permissions</h3>
+                                                <ul class="nav nav-pills ml-auto p-2">
+                                                  <li class="nav-item"><a class="nav-link active" href="#users" data-toggle="tab">Users</a></li>
+                                                  <li class="nav-item"><a class="nav-link " href="#categories" data-toggle="tab">Categories</a></li>
+                                                  <li class="nav-item"><a class="nav-link " href="#products" data-toggle="tab">Products</a></li>
+                                                </ul>
+                                              </div><!-- /.card-header -->
 
-                           
+                                              <div class="card-body">
+                                                <div class="tab-content">
+                                                  <div class="tab-pane active" id="users">
+                                                    <label><input type="checkbox" name="permissions[]" value="create_users">Create</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="read_users">Read</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="update_users">Update</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="delete_users">Delete</label>                                                    
+                                                  </div>
 
-                            
+                                                  
+                                                  <div class="tab-pane " id="categories">
+                                                    <label><input type="checkbox" name="permissions[]" value="create_categories">Create</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="read_categories">Read</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="update_categories">Update</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="delete_categories">Delete</label>                                                    
+                                                  </div>
+
+                                                  <div class="tab-pane " id="products">
+                                                    <label><input type="checkbox" name="permissions[]" value="create_products">Create</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="read_products">Read</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="update_products">Update</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="delete_products">Delete</label>                                                    
+                                                  </div>
+                                                  
+                                                </div>
+                                              </div><!-- /.card-body -->
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-primary">{{ trans('backend/master.control.save') }}</button>
                                 </div>

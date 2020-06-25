@@ -5,7 +5,7 @@ return [
     'dashboard'         =>  'Dashboard',
 
     'control'           => [
-        'create'        =>  'Create new',
+        'create'        =>  'Add new',
         'edit'          =>  'Edit',
         'delete'        =>  'Delete',
         'save'          =>  'Save',
