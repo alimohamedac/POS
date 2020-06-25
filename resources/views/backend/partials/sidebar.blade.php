@@ -8,7 +8,7 @@
                 <img src="{{ asset('backend/adminlte/dist/img/avatar5.png') }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p></p>
+                <p>{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</p>
                 
             </div>
         </div>
@@ -31,7 +31,7 @@
                     <i class="fa fa-dashboard"></i> <span>{{ trans('backend/master.dashboard') }}</span>
                 </a>
             </li>
-            @if(auth()->user()->hasPermission('read_users'))
+            
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-th-list"></i> <span>{{ trans('backend/users.control') }}</span>
@@ -40,11 +40,23 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('backend.users.index') }}"><i class="fa fa-circle-o"></i> {{ trans('backend/users.all') }}</a></li>
-                    <li><a href="{{ route('backend.users.create') }}"><i class="fa fa-circle-o"></i>{{ trans('backend/users.create') }}</a></li>
+                    <li>
+                    @if(auth()->user()->hasPermission('read_users'))
+                        <a href="{{ route('backend.users.index') }}"><i class="fa fa-circle-o"></i> {{ trans('backend/users.all') }}</a>
+                    @else
+                        <a href="#"><i class="fa fa-circle-o"></i> {{ trans('backend/users.all') }}</a>
+                    </li>
+                    @endif
+                    <li>
+                    @if(auth()->user()->hasPermission('create_users'))
+                        <a href="{{ route('backend.users.create') }}"><i class="fa fa-circle-o"></i>{{ trans('backend/users.create') }}</a>
+                    @else
+                        <a href="#"><i class="fa fa-circle-o"></i>{{ trans('backend/users.create') }}</a>
+                    @endif
+                    </li>
                 </ul>
             </li>
-            @endif
+            
         </ul>
     </section>
     <!-- /.sidebar -->

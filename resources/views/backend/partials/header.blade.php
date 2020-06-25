@@ -19,14 +19,14 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{{ asset('backend/adminlte/dist/img/avatar5.png') }}" class="user-image" alt="User Image">
-                        <span class="hidden-xs"></span>
+                        <span class="hidden-xs">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
                             <img src="{{ asset('backend/adminlte/dist/img/avatar5.png') }}" class="img-circle" alt="User Image">
                             <p>
-                                
+                                {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}
                                 <small></small>
                             </p>
                         </li>
