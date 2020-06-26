@@ -24,9 +24,9 @@ class UserController extends Controller
         $text = request('q');
         $users = User::whereRoleIs('admin')->where('first_name', 'like', '%'.$text.'%')
             ->orWhere('last_name', 'like', '%'.$text.'%')
-            ->paginate(9);
+            ->latest()->paginate(5);
 
-        return view('backend.modules.users.index',compact('users'));
+        return view('backend.modules.users.index',compact('users','text'));
     }
 
    

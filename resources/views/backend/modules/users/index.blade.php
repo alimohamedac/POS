@@ -79,7 +79,10 @@
                         @endif
 
                     </div>
-                    <!-- !! $items->links() !! -->
+                    <!-- pagination -->
+        <div class="clearfix">
+            {!! $users->appends($text)->links() !!}
+        </div>
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
