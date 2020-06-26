@@ -53,18 +53,18 @@
 
                                 @if(auth()->user()->hasPermission('update_users'))
 
-                                    <a href="{{ route('backend.users.edit', $user->id) }}" class="btn btn-info btn-sm">{{ trans('backend/master.control.edit') }}</a>
+                                    <a href="{{ route('backend.users.edit', $user->id) }}" class="btn btn-info btn-sm"><li class="fa fa-edit"></li> {{ trans('backend/master.control.edit') }}</a>
                                 @else
-                                    <a href="#" class="btn btn-info disabled">{{ trans('backend/master.control.edit') }}</a>
+                                    <a href="#" class="btn btn-info disabled"><li class="fa fa-edit"></li> {{ trans('backend/master.control.edit') }}</a>
                                 @endif
                                 @if(auth()->user()->hasPermission('delete_users'))
                                     <form action="{{ route('backend.users.destroy', $user->id) }}" method="post" style="display: inline-block">
                                     @csrf  
                                     @method('DELETE')  
-                                    <button type="submit" class="btn btn-danger btn-sm">{{ trans('backend/master.control.delete') }}</button>
+                                    <button type="submit" class="btn btn-danger btn-sm"><li class="fa fa-trash"></li> {{ trans('backend/master.control.delete') }}</button>
                                     </form>
                                 @else
-                                    <button  class="btn btn-danger disabled">{{ trans('backend/master.control.delete') }}</button>
+                                    <button  class="btn btn-danger disabled"><li class="fa fa-trash"></li> {{ trans('backend/master.control.delete') }}</button>
                                 @endif
                                 </td>
 

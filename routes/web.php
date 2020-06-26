@@ -23,15 +23,13 @@ Route::prefix('dashboard')->middleware(['auth'])->namespace('Backend')->group(fu
 
     //Route::resource('users','UserController')->except(['show']);
     Route::get('/users','UserController@index')->name('backend.users.index');
-	Route::get('/users/create', 'UserController@create')->name('backend.users.create');
+    Route::get('/users/create', 'UserController@create')->name('backend.users.create');
  	Route::post('/users/store', 'UserController@store')->name('backend.users.store');
  	Route::get('/users/{user}/edit', 'UserController@edit')->name('backend.users.edit');
     Route::post('/users/{user}/update', 'UserController@update')->name('backend.users.update');
 // 
 
         Route::get('/users/destroy/{id}', 'UserController@destroy')->name('backend.users.destroy');
-
-
 
 
 });

@@ -8,10 +8,19 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:read_users'])->only('index');
+        $this->middleware(['permission:create_users'])->only('create');
+        $this->middleware(['permission:update_users'])->only('edit');
+        $this->middleware(['permission:delete_users'])->only('destroy');
+
+
+    }
     
     public function index()
     {
-        $users = User::all();
+        $users = User::whereRoleIs('admin')->get();
         return view('backend.modules.users.index',compact('users'));
     }
 
