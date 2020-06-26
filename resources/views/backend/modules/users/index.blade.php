@@ -20,12 +20,14 @@
                         <a href="#" class="btn btn-success disabled">{{ trans('backend/master.control.create') }}</a>
                     @endif
                         <div class="box-tools">
+                            <form action="{{ route('backend.users.index') }}" method="get">
                             <div class="input-group input-group-sm" style="width: 150px;">
-                                <input name="table_search" class="form-control pull-right" placeholder="Search" type="text">
+                                <input class="form-control pull-right" name="q" value="{{ old('q') }}" placeholder="Search" type="text">
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                     <!-- /.box-header -->

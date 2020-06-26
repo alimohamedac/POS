@@ -19,8 +19,13 @@ class UserController extends Controller
     }
     
     public function index()
+    
     {
-        $users = User::whereRoleIs('admin')->get();
+        $text = request('q');
+        $users = User::whereRoleIs('admin')->where('first_name', 'like', '%'.$text.'%')
+            ->orWhere('last_name', 'like', '%'.$text.'%')
+            ->paginate(9);
+
         return view('backend.modules.users.index',compact('users'));
     }
 
