@@ -55,6 +55,29 @@
                     @endif
                     </li>
                 </ul>
+
+                <a href="#">
+                    <i class="fa fa-th-list"></i> <span>{{ trans('backend/categories.control') }}</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                    @if(auth()->user()->hasPermission('read_categories'))
+                        <a href="{{ route('backend.categories.index') }}"><i class="fa fa-circle-o"></i> {{ trans('backend/categories.all') }}</a>
+                    @else
+                        <a href="#"><i class="fa fa-circle-o"></i> {{ trans('backend/categories.all') }}</a>
+                    </li>
+                    @endif
+                    <li>
+                    @if(auth()->user()->hasPermission('create_categories'))
+                        <a href="{{ route('backend.categories.create') }}"><i class="fa fa-circle-o"></i>{{ trans('backend/categories.create') }}</a>
+                    @else
+                        <a href="#"><i class="fa fa-circle-o"></i>{{ trans('backend/categories.create') }}</a>
+                    @endif
+                    </li>
+                </ul>
             </li>
             
         </ul>

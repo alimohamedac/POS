@@ -20,14 +20,20 @@ Route::get('/', function () {
 Route::prefix('dashboard')->middleware(['auth'])->namespace('Backend')->group(function () {
 
     Route::get('/index', 'DashboardController@index')->name('backend.dashboard');
-
-    //Route::resource('users','UserController')->except(['show']);
+//users
     Route::get('/users','UserController@index')->name('backend.users.index');
     Route::get('/users/create', 'UserController@create')->name('backend.users.create');
  	Route::post('/users/store', 'UserController@store')->name('backend.users.store');
  	Route::get('/users/{user}/edit', 'UserController@edit')->name('backend.users.edit');
     Route::post('/users/{user}/update', 'UserController@update')->name('backend.users.update');
     Route::delete('/users/destroy/{user}', 'UserController@destroy')->name('backend.users.destroy');
+//categories
+    Route::get('/categories','CategoryController@index')->name('backend.categories.index');
+    Route::get('/categories/create', 'CategoryController@create')->name('backend.categories.create');
+ 	Route::post('/categories/store', 'CategoryController@store')->name('backend.categories.store');
+ 	Route::get('/categories/{user}/edit', 'CategoryController@edit')->name('backend.categories.edit');
+    Route::post('/categories/{user}/update', 'CategoryController@update')->name('backend.categories.update');
+    Route::delete('/categories/destroy/{user}', 'CategoryController@destroy')->name('backend.categories.destroy');
 
 
 });

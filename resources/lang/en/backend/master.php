@@ -19,5 +19,6 @@ return [
         'email'         =>  'Email',
         'action'        =>  'Action',
         'image'         =>  'Image',
+        'name'          =>  'Name'   
     ],
 ];
