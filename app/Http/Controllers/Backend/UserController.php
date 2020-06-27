@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class UserController extends Controller
@@ -100,6 +102,11 @@ class UserController extends Controller
     
     public function destroy(User $user)
     {
+        if($user->image != 'default.png')         //34an delete it mn public
+        {
+            Storage::disk('public_uploads')->delete('/user_images/' . $user->image);  //storagedisk tb3 ->config.fileSystem
+        }  
+
         $user->delete();
         session()->flash('message', trans('backend/messages.success.deleted'));
         return redirect()->route('backend.users.index');
