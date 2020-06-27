@@ -10,8 +10,9 @@ return [
         'first_name'               =>  'First Name',
         'last_name'                =>  'Last Name',
         'email'                    =>  'Email',
-        'password'                  =>  'Password',
-        'password_confirmation'     =>  'Password Confirmation',
+        'image'                    =>  'Image',        
+        'password'                 =>  'Password',
+        'password_confirmation'    =>  'Password Confirmation',
     ],
     'hints'     => [
         'first_name'         => 'add the First Name here',

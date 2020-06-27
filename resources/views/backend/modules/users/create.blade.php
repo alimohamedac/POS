@@ -40,6 +40,10 @@
                                         <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="email" placeholder="{{ trans('backend/users.hints.email') }}">
                                     </div>
                                     <div class="form-group">
+                                        <label for="image">{{ trans('backend/users.attributes.image') }}</label>
+                                        <input type="file" name="image" class="form-control" id="image">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="password">{{ trans('backend/users.attributes.password') }}</label>
                                         <input type="password" name="password" value="{{ old('password') }}" class="form-control" id="password" placeholder="{{ trans('backend/users.hints.password') }}">
                                     </div>

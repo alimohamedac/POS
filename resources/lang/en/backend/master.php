@@ -18,5 +18,6 @@ return [
         'last_name'     =>  'Last Name',
         'email'         =>  'Email',
         'action'        =>  'Action',
+        'image'         =>  'Image',
     ],
 ];

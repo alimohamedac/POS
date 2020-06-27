@@ -41,6 +41,7 @@
                                 <th>{{ trans('backend/master.index-nav.first_name') }}</th>
                                 <th>{{ trans('backend/master.index-nav.last_name') }}</th>
                                 <th>{{ trans('backend/master.index-nav.email') }}</th>
+                                <th>{{ trans('backend/master.index-nav.image') }}</th>
                                 <th>{{ trans('backend/master.index-nav.action') }}</th>                                
                             </tr>
                             </thead>
@@ -51,6 +52,7 @@
                                 <td>{{ $user->first_name }}</td>
                                 <td>{{ $user->last_name }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td><img src="{{ $user->image_path }}" style="width: 100px" class="img-thumbnail"></td>
                                 <td>
 
                                 @if(auth()->user()->hasPermission('update_users'))

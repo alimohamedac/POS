@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\BAckend;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+
 
 class UserController extends Controller
 {
@@ -40,14 +42,26 @@ class UserController extends Controller
         //dd($request->all());
         $request->validate([
             'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed',
+            'last_name'  => 'required',
+            'email'      => 'required|email',
+            'image'      => 'image',
+            'password'   => 'required|confirmed',
 
         ]);
 
-        $request_data = $request->except(['password','password_confirmaion','permissions']);
+        $request_data = $request->except(['password','password_confirmaion','permissions','image']);
         $request_data['password'] = bcrypt($request->password);
+
+        if($request->image)
+        {
+            Image::make($request->image)->resize(null, 200, function ($constraint) {
+            $constraint->aspectRatio();
+            })
+            ->save(public_path('uploads/user_images/' . $request->image->hashName()));
+
+            $request_data['image'] = $request->image->hashName();
+
+        }
 
         $user = User::create($request_data);
         $user->attachRole('admin');
@@ -86,6 +100,9 @@ class UserController extends Controller
     
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        session()->flash('message', trans('backend/messages.success.deleted'));
+        return redirect()->route('backend.users.index');
+
     }
 }
