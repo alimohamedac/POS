@@ -40,6 +40,10 @@
                                         <label for="email">{{ trans('backend/users.attributes.email') }}</label>
                                         <input type="email" name="email" value="{{ $user->email }}" class="form-control" id="email" placeholder="{{ trans('backend/users.hints.email') }}">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="image">{{ trans('backend/users.attributes.image') }}</label>
+                                        <input type="file" name="image" class="form-control" id="image">
+                                    </div>
                                     
                                     <div class="form-group">
                                         <div class="card">

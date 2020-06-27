@@ -86,10 +86,28 @@ class UserController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email',
+            'image'      => 'image',
+
             
         ]);
 
-        $request_data = $request->except(['permissions']);
+        $request_data = $request->except(['permissions','image']);
+
+        if($request->image)
+        {
+            if($user->image != 'default.png')   //a4an delete oldImage mn public
+            {
+                Storage::disk('public_uploads')->delete('/user_images/' . $user->image);  //storagedisk tb3 ->config.fileSystem
+            }
+
+            Image::make($request->image)->resize(null, 200, function ($constraint) {
+            $constraint->aspectRatio();
+            })
+            ->save(public_path('uploads/user_images/' . $request->image->hashName()));
+
+            $request_data['image'] = $request->image->hashName();
+        }
+
         $user->update($request_data);
 
         $user->syncPermissions($request->permissions);
