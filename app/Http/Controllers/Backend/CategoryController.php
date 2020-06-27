@@ -12,18 +12,27 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::paginate(3);
-        return view('backend.modules.categories.index');
+        return view('backend.modules.categories.index',compact('categories'));
     }
 
     public function create()
     {
-        //
+        return view('backend.modules.categories.create');
     }
 
     
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'  => 'required',
+        ]);
+
+        $category = Category::create([
+            'name'  => $request->name,
+        ]);
+
+        session()->flash('message', trans('backend/messages.success.added'));
+        return redirect()->route('backend.categories.index');
     }
 
     
