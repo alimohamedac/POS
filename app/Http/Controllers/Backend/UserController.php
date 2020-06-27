@@ -7,6 +7,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
+
 
 
 
@@ -45,9 +47,10 @@ class UserController extends Controller
         $request->validate([
             'first_name' => 'required',
             'last_name'  => 'required',
-            'email'      => 'required|email',
+            'email'      => 'required|email|unique:users',
             'image'      => 'image',
             'password'   => 'required|confirmed',
+            'permissions'=> 'required|min:1',
 
         ]);
 
@@ -85,10 +88,10 @@ class UserController extends Controller
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required|email',
+            'email' => ['required','email', Rule::unique('users')->ignore($user->id),],
             'image'      => 'image',
-
-            
+            'permissions'=> 'required|min:1',
+    
         ]);
 
         $request_data = $request->except(['permissions','image']);
