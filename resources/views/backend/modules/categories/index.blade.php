@@ -55,7 +55,7 @@
                                     <a href="#" class="btn btn-info disabled"><li class="fa fa-edit"></li> {{ trans('backend/master.control.edit') }}</a>
                                 @endif
                                 @if(auth()->user()->hasPermission('delete_categories'))
-                                    <form action="{{ route('backend.users.destroy', $category->id) }}" method="post" style="display: inline-block">
+                                    <form action="{{ route('backend.categories.destroy', $category->id) }}" method="post" style="display: inline-block">
                                     @csrf  
                                     @method('DELETE')  
                                     <button type="submit" class="btn btn-danger btn-sm"><li class="fa fa-trash"></li> {{ trans('backend/master.control.delete') }}</button>
@@ -76,7 +76,7 @@
                     </div>
                     <!-- pagination -->
         <div class="clearfix">
-            {!! $categories->links() !!}
+            {!! $categories->appends($text)->links() !!}
         </div>
                     <!-- /.box-body -->
                 </div>

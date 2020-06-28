@@ -11,8 +11,11 @@ class CategoryController extends Controller
     
     public function index()
     {
-        $categories = Category::paginate(3);
-        return view('backend.modules.categories.index',compact('categories'));
+        $text = request('q');
+
+        $categories = Category::where('name', 'like', '%'.$text.'%')
+            ->latest()->paginate(5);
+        return view('backend.modules.categories.index',compact('categories','text'));
     }
 
     public function create()
@@ -24,49 +27,38 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'  => 'required',
+            'name'  => 'required|unique:categories,name',
         ]);
 
-        $category = Category::create([
-            'name'  => $request->name,
-        ]);
+        $category = Category::create($request->all());
 
         session()->flash('message', trans('backend/messages.success.added'));
         return redirect()->route('backend.categories.index');
     }
 
     
-    public function show($id)
+    public function edit(Category $category)
     {
-        //
+        return view('backend.modules.categories.edit',compact('category')); 
     }
 
-    
-    public function edit($id)
+    public function update(Request $request,Category $category)
     {
-        //
+        $request->validate([
+            'name'  => 'required|unique:categories,name,'. $category->id,     //34an ignore 
+        ]);
+
+        $category->update($request->all());
+
+        session()->flash('message', trans('backend/messages.success.updated'));
+        return redirect()->route('backend.categories.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function destroy(Category $category)
     {
-        //
-    }
+        $category->delete();
+        session()->flash('message', trans('backend/messages.success.deleted'));
+        return redirect()->route('backend.categories.index');
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
