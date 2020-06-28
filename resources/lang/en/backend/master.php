@@ -19,6 +19,10 @@ return [
         'email'         =>  'Email',
         'action'        =>  'Action',
         'image'         =>  'Image',
-        'name'          =>  'Name'   
+        'name'          =>  'Name',
+        'discreption'   =>  'Discreption',
+        'purchase_price'=>  'Purchase Price',
+        'sale_price'    =>  'Sale Price',
+        'stock'         =>  'Stock',
     ],
 ];
