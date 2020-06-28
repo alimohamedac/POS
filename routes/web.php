@@ -31,10 +31,16 @@ Route::prefix('dashboard')->middleware(['auth'])->namespace('Backend')->group(fu
     Route::get('/categories','CategoryController@index')->name('backend.categories.index');
     Route::get('/categories/create', 'CategoryController@create')->name('backend.categories.create');
  	Route::post('/categories/store', 'CategoryController@store')->name('backend.categories.store');
- 	Route::get('/categories/{user}/edit', 'CategoryController@edit')->name('backend.categories.edit');
-    Route::post('/categories/{user}/update', 'CategoryController@update')->name('backend.categories.update');
-    Route::delete('/categories/destroy/{user}', 'CategoryController@destroy')->name('backend.categories.destroy');
-
+ 	Route::get('/categories/{category}/edit', 'CategoryController@edit')->name('backend.categories.edit');
+    Route::post('/categories/{category}/update', 'CategoryController@update')->name('backend.categories.update');
+    Route::delete('/categories/destroy/{category}', 'CategoryController@destroy')->name('backend.categories.destroy');
+//products
+    Route::get('/products','ProductController@index')->name('backend.products.index');
+    Route::get('/products/create', 'ProductController@create')->name('backend.products.create');
+ 	Route::post('/products/store', 'ProductController@store')->name('backend.products.store');
+ 	Route::get('/products/{product}/edit', 'ProductController@edit')->name('backend.products.edit');
+    Route::post('/products/{product}/update', 'ProductController@update')->name('backend.products.update');
+    Route::delete('/products/destroy/{product}', 'ProductController@destroy')->name('backend.products.destroy');
 
 });
 
