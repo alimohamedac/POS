@@ -32,7 +32,31 @@
                 </a>
             </li>
             
-            <li class="treeview">
+            <li class="treeview"> 
+
+                <a href="#">
+                    <i class="fa fa-th-list"></i> <span>{{ trans('backend/categories.control') }}</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                    @if(auth()->user()->hasPermission('read_categories'))
+                        <a href="{{ route('backend.categories.index') }}"><i class="fa fa-circle-o"></i> {{ trans('backend/categories.all') }}</a>
+                    @else
+                        <a href="#"><i class="fa fa-circle-o"></i> {{ trans('backend/categories.all') }}</a>
+                    </li>
+                    @endif
+                    <li>
+                    @if(auth()->user()->hasPermission('create_categories'))
+                        <a href="{{ route('backend.categories.create') }}"><i class="fa fa-circle-o"></i>{{ trans('backend/categories.create') }}</a>
+                    @else
+                        <a href="#"><i class="fa fa-circle-o"></i>{{ trans('backend/categories.create') }}</a>
+                    @endif
+                    </li>
+                </ul>
+                
                 <a href="#">
                     <i class="fa fa-th-list"></i> <span>{{ trans('backend/users.control') }}</span>
                     <span class="pull-right-container">
@@ -57,27 +81,29 @@
                 </ul>
 
                 <a href="#">
-                    <i class="fa fa-th-list"></i> <span>{{ trans('backend/categories.control') }}</span>
+                    <i class="fa fa-th-list"></i> <span>{{ trans('backend/products.control') }}</span>
                     <span class="pull-right-container">
                       <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                    @if(auth()->user()->hasPermission('read_categories'))
-                        <a href="{{ route('backend.categories.index') }}"><i class="fa fa-circle-o"></i> {{ trans('backend/categories.all') }}</a>
+                    @if(auth()->user()->hasPermission('read_products'))
+                        <a href="{{ route('backend.products.index') }}"><i class="fa fa-circle-o"></i> {{ trans('backend/products.all') }}</a>
                     @else
-                        <a href="#"><i class="fa fa-circle-o"></i> {{ trans('backend/categories.all') }}</a>
+                        <a href="#"><i class="fa fa-circle-o"></i> {{ trans('backend/products.all') }}</a>
                     </li>
                     @endif
                     <li>
-                    @if(auth()->user()->hasPermission('create_categories'))
-                        <a href="{{ route('backend.categories.create') }}"><i class="fa fa-circle-o"></i>{{ trans('backend/categories.create') }}</a>
+                    @if(auth()->user()->hasPermission('create_products'))
+                        <a href="{{ route('backend.products.create') }}"><i class="fa fa-circle-o"></i>{{ trans('backend/products.create') }}</a>
                     @else
-                        <a href="#"><i class="fa fa-circle-o"></i>{{ trans('backend/categories.create') }}</a>
+                        <a href="#"><i class="fa fa-circle-o"></i>{{ trans('backend/products.create') }}</a>
                     @endif
                     </li>
                 </ul>
+
+                
             </li>
             
         </ul>

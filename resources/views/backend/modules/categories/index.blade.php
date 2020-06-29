@@ -39,6 +39,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>{{ trans('backend/categories.attributes.name') }}</th>
+                                <th>{{ trans('backend/categories.attributes.products_count') }}</th>
                                 <th>{{ trans('backend/master.index-nav.action') }}</th>                                
                             </tr>
                             </thead>
@@ -47,6 +48,7 @@
                             <tr>
                                 <td>{{ $index +1 }}</td>
                                 <td>{{ $category->name }}</td>
+                                <td>{{ $category->products->count() }}</td>
                                 <td>
                                 @if(auth()->user()->hasPermission('update_categories'))
 
