@@ -28,8 +28,11 @@
                                 </div>
                             </div>
                             </form>
+
                         </div>
+
                     </div>
+                    <br>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive no-padding">
                         
@@ -40,9 +43,11 @@
                                 <th>#</th>
                                 <th>{{ trans('backend/master.index-nav.name') }}</th>
                                 <th>{{ trans('backend/master.index-nav.discreption') }}</th>
+                                <th>{{ trans('backend/products.attributes.category_name') }}</th>
                                 <th>{{ trans('backend/master.index-nav.image') }}</th>
                                 <th>{{ trans('backend/master.index-nav.purchase_price') }}</th>
                                 <th>{{ trans('backend/master.index-nav.sale_price') }}</th>
+                                <th>{{ trans('backend/master.index-nav.profit_percent') }} %</th>
                                 <th>{{ trans('backend/master.index-nav.stock') }}</th>                                
                                 <th>{{ trans('backend/master.index-nav.action') }}</th>                                
                             </tr>
@@ -53,9 +58,11 @@
                                 <td>{{ $index +1 }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->discreption }}</td>
+                                <td>{{ $product->category->name }}</td>
                                 <td><img src="{{ $product->image_path }}" style="width: 100px" class="img-thumbnail"></td>
                                 <td>{{ $product->purchase_price }}</td>
                                 <td>{{ $product->sale_price }}</td>
+                                <td>{{ $product->profit_percent }} %</td>
                                 <td>{{ $product->stock }}</td>                  
                                 <td>
 
