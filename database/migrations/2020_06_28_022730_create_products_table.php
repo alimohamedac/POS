@@ -23,8 +23,6 @@ class CreateProductsTable extends Migration
             $table->double('sale_price',8,2);            
             $table->integer('stock');
 
-            $table->foreign('category_id')->references('id')->on('categories');
-
             $table->timestamps();
 
             

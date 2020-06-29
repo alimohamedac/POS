@@ -56,6 +56,29 @@
                     @endif
                     </li>
                 </ul>
+
+                <a href="#">
+                    <i class="fa fa-th-list"></i> <span>{{ trans('backend/products.control') }}</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                    @if(auth()->user()->hasPermission('read_products'))
+                        <a href="{{ route('backend.products.index') }}"><i class="fa fa-circle-o"></i> {{ trans('backend/products.all') }}</a>
+                    @else
+                        <a href="#"><i class="fa fa-circle-o"></i> {{ trans('backend/products.all') }}</a>
+                    </li>
+                    @endif
+                    <li>
+                    @if(auth()->user()->hasPermission('create_products'))
+                        <a href="{{ route('backend.products.create') }}"><i class="fa fa-circle-o"></i>{{ trans('backend/products.create') }}</a>
+                    @else
+                        <a href="#"><i class="fa fa-circle-o"></i>{{ trans('backend/products.create') }}</a>
+                    @endif
+                    </li>
+                </ul>
                 
                 <a href="#">
                     <i class="fa fa-th-list"></i> <span>{{ trans('backend/users.control') }}</span>
@@ -81,29 +104,29 @@
                 </ul>
 
                 <a href="#">
-                    <i class="fa fa-th-list"></i> <span>{{ trans('backend/products.control') }}</span>
+                    <i class="fa fa-th-list"></i> <span>{{ trans('backend/clients.control') }}</span>
                     <span class="pull-right-container">
                       <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                    @if(auth()->user()->hasPermission('read_products'))
-                        <a href="{{ route('backend.products.index') }}"><i class="fa fa-circle-o"></i> {{ trans('backend/products.all') }}</a>
+                    @if(auth()->user()->hasPermission('read_clients'))
+                        <a href="{{ route('backend.clients.index') }}"><i class="fa fa-circle-o"></i> {{ trans('backend/clients.all') }}</a>
                     @else
-                        <a href="#"><i class="fa fa-circle-o"></i> {{ trans('backend/products.all') }}</a>
+                        <a href="#"><i class="fa fa-circle-o"></i> {{ trans('backend/clients.all') }}</a>
                     </li>
                     @endif
                     <li>
-                    @if(auth()->user()->hasPermission('create_products'))
-                        <a href="{{ route('backend.products.create') }}"><i class="fa fa-circle-o"></i>{{ trans('backend/products.create') }}</a>
+                    @if(auth()->user()->hasPermission('create_clients'))
+                        <a href="{{ route('backend.clients.create') }}"><i class="fa fa-circle-o"></i>{{ trans('backend/clients.create') }}</a>
                     @else
-                        <a href="#"><i class="fa fa-circle-o"></i>{{ trans('backend/products.create') }}</a>
+                        <a href="#"><i class="fa fa-circle-o"></i>{{ trans('backend/clients.create') }}</a>
                     @endif
                     </li>
                 </ul>
 
-                
+                        
             </li>
             
         </ul>
