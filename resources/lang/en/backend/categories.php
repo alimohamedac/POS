@@ -7,7 +7,9 @@ return [
     'edit'      => 'Edit Category',
 
     'attributes'=> [
-        'name'          => 'Name',
+        'name'             => 'Name',
+        'products_count'   => 'Products Count',
+        'related_products' => 'Related Products',
         
     ],
     'hints'     => [

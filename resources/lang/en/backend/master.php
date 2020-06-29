@@ -23,6 +23,7 @@ return [
         'discreption'   =>  'Discreption',
         'purchase_price'=>  'Purchase Price',
         'sale_price'    =>  'Sale Price',
+        'profit_percent'=>  'Profit Percent', 
         'stock'         =>  'Stock',
     ],
 ];
