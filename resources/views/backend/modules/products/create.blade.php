@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="sale_price">{{ trans('backend/products.attributes.sale_price') }}</label>
-                                        <input type="number" name="sale_price" class="form-control" id="sale_price" value="{{ old('sale_price') }}" required>
+                                        <input type="number" name="sale_price" step="0.01" class="form-control" id="sale_price" value="{{ old('sale_price') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="stock">{{ trans('backend/products.attributes.stock') }}</label>

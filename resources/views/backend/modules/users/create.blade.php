@@ -60,6 +60,8 @@
                                                   <li class="nav-item"><a class="nav-link active" href="#users" data-toggle="tab">Users</a></li>
                                                   <li class="nav-item"><a class="nav-link " href="#categories" data-toggle="tab">Categories</a></li>
                                                   <li class="nav-item"><a class="nav-link " href="#products" data-toggle="tab">Products</a></li>
+                                                  <li class="nav-item"><a class="nav-link " href="#clients" data-toggle="tab">Clients</a></li>
+                                                  <li class="nav-item"><a class="nav-link " href="#orders" data-toggle="tab">Orders</a></li>
                                                 </ul>
                                               </div><!-- /.card-header -->
 
@@ -85,6 +87,20 @@
                                                     <label><input type="checkbox" name="permissions[]" value="read_products">Read</label>
                                                     <label><input type="checkbox" name="permissions[]" value="update_products">Update</label>
                                                     <label><input type="checkbox" name="permissions[]" value="delete_products">Delete</label>                                                    
+                                                  </div>
+
+                                                  <div class="tab-pane " id="clients">
+                                                    <label><input type="checkbox" name="permissions[]" value="create_clients">Create</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="read_clients">Read</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="update_clients">Update</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="delete_clients">Delete</label>                                                    
+                                                  </div>
+
+                                                  <div class="tab-pane " id="orders">
+                                                    <label><input type="checkbox" name="permissions[]" value="create_orders">Create</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="read_orders">Read</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="update_orders">Update</label>
+                                                    <label><input type="checkbox" name="permissions[]" value="delete_orders">Delete</label>                                                    
                                                   </div>
                                                   
                                                 </div>

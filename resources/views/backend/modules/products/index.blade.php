@@ -94,7 +94,7 @@
                     </div>
                     <!-- pagination -->
         <div class="clearfix">
-            {!! $products->links() !!}
+            {!! $products->appends($text)->links() !!}
         </div>
                     <!-- /.box-body -->
                 </div>

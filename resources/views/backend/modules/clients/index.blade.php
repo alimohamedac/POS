@@ -41,7 +41,8 @@
                                 <th>#</th>
                                 <th>{{ trans('backend/clients.attributes.name') }}</th>
                                 <th>{{ trans('backend/clients.attributes.phone') }}</th>
-                                <th>{{ trans('backend/clients.attributes.address') }}</th>                                
+                                <th>{{ trans('backend/clients.attributes.address') }}</th>
+                                <th>{{ trans('backend/orders.create') }}</th>
                                 <th>{{ trans('backend/master.index-nav.action') }}</th>                                
                             </tr>
                             </thead>
@@ -53,11 +54,18 @@
                                 <td>{{ implode(array_filter($client->phone),'-') }}</td><!--from array to string -->
                                 <td>{{ $client->address }}</td>
                                 <td>
+                                @if(auth()->user()->hasPermission('create_orders'))
+                                    <a href="{{ route('backend.orders.create',$client->id) }}" class="btn btn-primary btn-sm">{{ trans('backend/orders.create') }}</a>
+                                @else
+                                    <a href="#" class="btn btn-primary disabled">{{ trans('backend/orders.create') }}</a>
+                                @endif
+                                </td>
+                                <td>
                                 @if(auth()->user()->hasPermission('update_clients'))
 
                                     <a href="{{ route('backend.clients.edit', $client->id) }}" class="btn btn-info btn-sm"><li class="fa fa-edit"></li> {{ trans('backend/master.control.edit') }}</a>
                                 @else
-                                    <a href="#" class="btn btn-info disabled"><li class="fa fa-edit"></li> {{ trans('backend/master.control.edit') }}</a>
+                                    <a href="#" class="btn btn-info btn-sm disabled"><li class="fa fa-edit"></li> {{ trans('backend/master.control.edit') }}</a>
                                 @endif
                                 @if(auth()->user()->hasPermission('delete_clients'))
                                     <form action="{{ route('backend.clients.destroy', $client->id) }}" method="post" style="display: inline-block">

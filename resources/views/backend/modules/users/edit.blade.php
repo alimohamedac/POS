@@ -53,6 +53,8 @@
                                                   <li class="nav-item"><a class="nav-link active" href="#users" data-toggle="tab">Users</a></li>
                                                   <li class="nav-item"><a class="nav-link " href="#categories" data-toggle="tab">Categories</a></li>
                                                   <li class="nav-item"><a class="nav-link " href="#products" data-toggle="tab">Products</a></li>
+                                                  <li class="nav-item"><a class="nav-link " href="#clients" data-toggle="tab">Clients</a></li>
+                                                  <li class="nav-item"><a class="nav-link " href="#orders" data-toggle="tab">Orders</a></li>
                                                 </ul>
                                               </div><!-- /.card-header -->
 
@@ -79,6 +81,21 @@
                                                     <label><input type="checkbox" name="permissions[]" {{ $user->hasPermission('update_products') ? 'checked' : '' }} value="update_products">Update</label>
                                                     <label><input type="checkbox" name="permissions[]" {{ $user->hasPermission('delete_products') ? 'checked' : '' }} value="delete_products">Delete</label>                                                    
                                                   </div>
+
+                                                  <div class="tab-pane " id="clients">
+                                                    <label><input type="checkbox" name="permissions[]" {{ $user->hasPermission('create_clients') ? 'checked' : '' }} value="create_clients">Create</label>
+                                                    <label><input type="checkbox" name="permissions[]" {{ $user->hasPermission('read_clients') ? 'checked' : '' }} value="read_clients">Read</label>
+                                                    <label><input type="checkbox" name="permissions[]" {{ $user->hasPermission('update_clients') ? 'checked' : '' }} value="update_clients">Update</label>
+                                                    <label><input type="checkbox" name="permissions[]" {{ $user->hasPermission('delete_clients') ? 'checked' : '' }} value="delete_clients">Delete</label>                                                    
+                                                  </div>
+
+                                                  <div class="tab-pane " id="orders">
+                                                    <label><input type="checkbox" name="permissions[]" {{ $user->hasPermission('create_orders') ? 'checked' : '' }} value="create_orders">Create</label>
+                                                    <label><input type="checkbox" name="permissions[]" {{ $user->hasPermission('read_orders') ? 'checked' : '' }} value="read_orders">Read</label>
+                                                    <label><input type="checkbox" name="permissions[]" {{ $user->hasPermission('update_orders') ? 'checked' : '' }} value="update_orders">Update</label>
+                                                    <label><input type="checkbox" name="permissions[]" {{ $user->hasPermission('delete_orders') ? 'checked' : '' }} value="delete_orders">Delete</label>                                                    
+                                                  </div>
+
                                                   
                                                 </div>
                                               </div><!-- /.card-body -->
